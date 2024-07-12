@@ -1,0 +1,259 @@
+/* Begin Login and Registration Page  */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+.App {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: white;
+}
+
+.Auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.Auth-form {
+  width: 420px;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.Auth-form-content {
+  padding-left: 12%;
+  padding-right: 12%;
+}
+
+.Auth-form-title {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+}
+
+/* Begin Login and Registration Page  */
+
+/* Begin NotesPage.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden
+}
+
+.notes-page {
+  display: flex;
+  height: 100vh;
+  ;
+}
+
+.sidebar {
+  width: 25%;
+  background-color: #f5f5f5;
+  border-right: 1px solid #e0e0e0;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Add scrollbar to the sidebar */
+}
+
+.note-item {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.note-item:hover,
+.note-item.selected {
+  background-color: #e0e0e0;
+}
+
+.add-new-note-button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.add-new-note-button:hover {
+  background-color: #0056b3;
+}
+
+.note-display {
+  width: 75%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.edit-note-form,
+.view-note,
+.add-note-form {
+  max-width: 800px; /* Increase max-width for larger title and content fields */
+  margin: 0 auto;
+}
+
+.edit-note-form input,
+.add-note-form input,
+.edit-note-form textarea,
+.add-note-form textarea {
+  width: 100%;
+  padding: 15px; /* Increase padding for more comfortable input fields */
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.edit-note-form input:focus,
+.add-note-form input:focus,
+.edit-note-form textarea:focus,
+.add-note-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.large-textarea {
+  height: 400px; /* Increase height for better content visibility */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.view-note h2 {
+  margin-top: 0;
+}
+
+
+
+/* End NotePage.css */
+
+/*   Begin Home Page CSS    */
+
+.landing-page {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-content {
+  margin-top: 50px;
+}
+
+.landing-page h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+.landing-page p {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.nav-link {
+  margin-right: 20px;
+}
+
+.landing-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.landing-image {
+  width: 100%;
+  height: auto; /* Adjust this value as needed */
+}
+
+.features-section {
+  margin-top: 50px;
+}
+
+.features-section h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.feature {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.feature img {
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.feature h4 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 1em;
+  color: #666;
+}
+
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.logo {
+  max-height: 50px;
+  margin-right: 20px;
+}
+
+.my-5 {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+}
+
+.bi {
+  color: #1aa1fc;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+}
+
+.footer .text-muted {
+  color: #6c757d;
+}
+
+/*   End Home Page CSS     */

@@ -14,7 +14,7 @@ const Login = () => {
             const response = await axios.post('http://106.211.118.245/32:5000/api/login', { username, password });
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('user', JSON.stringify(response.data.user));
-            navigate('/notes');
+            navigate('/notes_app/#/notes');
         } catch (error) {
             console.error('Failed to login:', error);
         }

@@ -25,7 +25,7 @@ const NotesPage = () => {
   const fetchNotes = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/notes', {
+      const response = await axios.get('http://106.211.118.245/32:5000/api/notes', {
         headers: { Authorization: token },
       });
       setNotes(response.data);

@@ -11,7 +11,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://106.211.118.245/32:5000/api/login', { username, password });
+            const response = await axios.post('http://0.0.0.0/0:5000/api/login', { username, password });
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('user', JSON.stringify(response.data.user));
             navigate('/notes_app/#/notes');

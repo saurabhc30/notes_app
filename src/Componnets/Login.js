@@ -11,23 +11,12 @@ const Login = ({setAuthenticated }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-<<<<<<< HEAD
-          const response = await axios.post('/api/users/login', { username, password });
-          localStorage.setItem('token', response.data.token);
-          localStorage.setItem('user', JSON.stringify(response.data.user));
-          axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
-          setAuthenticated(true);
-          navigate('/notes');
-        } catch (err) {
-          setError('Invalid username or password');
-=======
             const response = await axios.post('http://0.0.0.0/0:5000/api/login', { username, password });
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('user', JSON.stringify(response.data.user));
             navigate('/notes_app/#/notes');
         } catch (error) {
             console.error('Failed to login:', error);
->>>>>>> def340c0018610374a950f6b243b076c80388a94
         }
       };
 

@@ -1,6 +1,6 @@
 {
   "name": "notes_app",
-  "homepage": "https://saurabhc30.github.io/NoteApp",
+  "homepage": "https://saurabhc30.github.io/notes_app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -49,5 +49,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

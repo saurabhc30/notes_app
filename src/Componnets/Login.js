@@ -2,27 +2,29 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({setAuthenticated }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [isLogin, setIsLogin] = useState(true);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/login', { username, password });
-            localStorage.setItem('token', response.data.token);
-            localStorage.setItem('user', JSON.stringify(response.data.user));
-            navigate('/notes');
-        } catch (error) {
-            console.error('Failed to login:', error);
+          const response = await axios.post('/api/users/login', { username, password });
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', JSON.stringify(response.data.user));
+          axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+          setAuthenticated(true);
+          navigate('/notes');
+        } catch (err) {
+          setError('Invalid username or password');
         }
       };
 
     return (
         <div className="Auth-form-container">
-            <form className="Auth-form" onSubmit={handleSubmit}>
+            <form className="Auth-form" onSubmit={handleLogin}>
                 <div className="Auth-form-content">
                     <h3 className="Auth-form-title">Log In</h3>
                     <div className="text-center">

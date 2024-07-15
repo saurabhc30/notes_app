@@ -26,7 +26,7 @@ const NotesPage = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get('http://localhost:5000/api/notes', {
-        headers: { Authorization: token },
+        headers: { 'Authorization': token },
       });
       setNotes(response.data);
       setFilteredNotes(response.data);
@@ -35,39 +35,24 @@ const NotesPage = () => {
     }
   };
 
-  const handleDeleteNote = async (index) => {
-    try {
-      const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/notes/${notes[index]._id}`, {
-        headers: { Authorization: token },
-      });
-      setNotes(notes.filter((_, i) => i !== index));
-      if (selectedNoteIndex === index) {
-        setSelectedNoteIndex(null);
-        setEditingNoteIndex(null);
-      }
-    } catch (error) {
-      console.error('Error deleting note:', error);
-    }
-  };
-
+  
   const handleNoteClick = (index) => {
     setSelectedNoteIndex(index);
     setEditingNoteIndex(index);
   };
-
+  
   const handleAddNewNoteClick = () => {
     setSelectedNoteIndex(null);
     setEditingNoteIndex(null);
   };
-
+  
   const handleAddNote = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:5000/api/notes', newNote, {
+      const response = await axios.post('/api/notes', newNote, {
         headers: { Authorization: token },
       });
-      setNotes([...notes, response.data]);
+      setFilteredNotes([...notes, response.data]);
       setNewNote({ title: '', content: '' });
       setSelectedNoteIndex(notes.length);
       setEditingNoteIndex(notes.length);
@@ -82,11 +67,27 @@ const NotesPage = () => {
     setNotes(updatedNotes);
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/notes/${updatedNotes[index]._id}`, updatedNotes[index], {
+      await axios.put(`/api/notes/${updatedNotes[index]._id}`, updatedNotes[index], {
         headers: { Authorization: token },
       });
     } catch (error) {
       console.error('Error updating note:', error);
+    }
+  };
+
+  const handleDeleteNote = async (index) => {
+    try {
+      const token = localStorage.getItem('token');
+      await axios.delete(`/api/notes/${notes[index]._id}`, {
+        headers: { 'x-auth-token': token }
+      });
+      setFilteredNotes(notes.filter(note => note._id !== notes[index]._id));
+      if (selectedNoteIndex === notes[index]._id) {
+        setSelectedNoteIndex(null);
+        setEditingNoteIndex(null);
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
 
